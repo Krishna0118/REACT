@@ -1,10 +1,12 @@
-
 import './App.css'
-
+import ProductTab from './ProductTab.jsx';
 function App() {
-  return <button>Hello</button>
-  
-
+  return (
+    <>
+    <h2>Blockbuster Deals| Shop Now</h2>
+    <ProductTab/>
+    </>
+  );
 
 }
 

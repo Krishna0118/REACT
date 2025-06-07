@@ -1,5 +1,6 @@
 import Counter from './Counter';
 import './App.css'
+import LikeButton from './LikeButton';
 
 function App() {
   
@@ -8,6 +9,7 @@ function App() {
     <>
      <h1>States in React</h1>
      <h2><Counter/></h2>
+     <LikeButton/>
     </>
   );
 }

@@ -1,16 +1,48 @@
 import { useState } from "react";
 
 export default function Form(){
-    let [fullName, setFullName]= useState("shradha");
+    let[formData, setFormData] = useState({
+        fullName: "",
+        username: ""
+    });
 
-    let handleChange=(event) => {
-        setFullName(event.target.value);
+
+    // let handleChange=(event) => {
+    //     setFullName(event.target.value);
+    // }
+
+    //   let handleUsername=(event) => {
+    //     setusername(event.target.value);
+    // }
+
+    let handleInputChange=(event) => {
+        let fieldName = event.target.name;
+        let newValue = event.target.value;
+        
+        setFormData((currData) => {
+          
+            return{...currData, [fieldName]: newValue}
+        })
     }
 
+    let handleSubmit=(event)=>{
+        event.preventDefault();
+        console.log(formData)
+        setFormData({
+            fullName: "",
+            username: ""
+        })
+    }
     return (
-        <form>
-            <label htmlFor="username">Full Name</label>
-            <input placeholder="enter full name" type="text" value={fullName} onChange={handleChange} id="username"/>
+        <form onSubmit={handleSubmit}>
+            <label htmlFor="fullName">Full Name</label>
+            <input placeholder="enter full name" type="text" value={formData.fullName} onChange={handleInputChange} id="fullName" name="fullName"/>
+            <br />
+            <br />
+            <label htmlFor="username">UserName</label>
+            <input placeholder="enter username" type="text" value={formData.username} onChange={handleInputChange} id="username" name="username"/>
+            <br />
+            <br />
             <button>Submit</button>
         </form>
     );
